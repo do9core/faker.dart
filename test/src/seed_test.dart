@@ -2,33 +2,23 @@ import 'package:faker_dart/faker_dart.dart';
 import 'package:test/test.dart';
 
 void main() {
-  late Faker faker1;
-  late Faker faker2;
+  const fmt = '{{name.lastName}}, {{name.firstName}} {{name.suffix}}';
 
-  setUp(() {
-    faker1 = Faker.seed(0);
-    faker2 = Faker.seed(0);
+  test('faker can replay same sequence when set same seed', () {
+    final faker = Faker.seed(100);
+    final result1 = faker.fake(fmt);
+
+    faker.setSeed(100);
+    final result2 = faker.fake(fmt);
+    expect(result1 == result2, isTrue);
   });
 
   test('fakers with same seed generate same sequence', () {
-    List<dynamic> grabResults(Faker faker) {
-      return [
-        faker.git.branch(),
-        faker.database.collation(),
-        faker.hacker.noun(),
-      ];
-    }
+    final faker1 = Faker.seed(0);
+    final faker2 = Faker.seed(0);
 
-    bool listEquals<T>(List<T> a, List<T> b) {
-      if (a.length != b.length) return false;
-      for (int i = 0; i < a.length; i++) {
-        if (a[i] != b[i]) return false;
-      }
-      return true;
-    }
-
-    final faker1Result = grabResults(faker1);
-    final faker2Result = grabResults(faker2);
-    expect(listEquals(faker1Result, faker2Result), true);
+    final result1 = faker1.fake(fmt);
+    final result2 = faker2.fake(fmt);
+    expect(result1 == result2, isTrue);
   });
 }

@@ -21,11 +21,15 @@ import 'phone_number.dart';
 
 /// generate massive amounts of fake data in dart!
 class Faker {
-  Faker([Random? random]) : this.random = random ?? Random();
+  Faker([Random? random]) : this._random = random ?? Random();
 
   Faker.seed(int seed) : this(Random(seed));
 
-  final Random random;
+  /// single source of random number generator
+  Random _random;
+
+  /// random number generator, user should not mutate this instance normally
+  Random get random => _random;
 
   /// [Faker] singleton
   static final Faker instance = Faker();
@@ -39,6 +43,22 @@ class Faker {
   /// set a locale from one of the included locales
   void setLocale(FakerLocaleType type) =>
       _locale = LocaleUtils.generateLocale(type);
+
+  /// Set a seed to replay a same sequence
+  ///
+  /// __Example:__
+  ///
+  /// ``` dart
+  // ignore: lines_longer_than_80_chars
+  /// faker.setSeed(123);
+  /// final num1 = faker.datatype.int();
+  /// faker.setSeed(123);
+  /// final num2 = faker.datatype.int();
+  /// assert(num1 == num2);
+  /// ```
+  ///
+  /// This will ensure same sequence be faked.
+  void setSeed(int seed) => _random = Random(seed);
 
   /// set a custom locale
   void setCustomLocale(FakerLocale locale) => _locale = locale;
