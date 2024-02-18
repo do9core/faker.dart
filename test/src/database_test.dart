@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:faker_dart/faker_dart.dart';
 import 'package:faker_dart/src/database.dart';
 import 'package:mocktail/mocktail.dart';
@@ -12,6 +14,8 @@ void main() {
   setUp(() {
     faker = MockFaker();
     database = Database(faker);
+
+    when(() => faker.random).thenReturn(Random(0));
   });
 
   test('return a random column', () {

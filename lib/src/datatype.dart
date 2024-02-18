@@ -1,11 +1,16 @@
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:faker_dart/faker_dart.dart';
 import 'package:faker_dart/src/utils/random_utils.dart';
 
 /// {@macro datatype}
 class DataType {
-  final _random = Random();
+  DataType(this._faker);
+
+  final Faker _faker;
+
+  Random get _random => _faker.random;
 
   /// returns a random [int] with optional [min] & [max] parameters
   ///
@@ -78,7 +83,7 @@ class DataType {
     var string = '0x';
 
     for (var i = 0; i < length; i++) {
-      string += RandomUtils.arrayElement(chars);
+      string += RandomUtils.arrayElement(_random, chars);
     }
     return string;
   }

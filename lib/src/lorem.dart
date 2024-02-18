@@ -16,7 +16,7 @@ class Lorem {
     final words = length == null
         ? _faker.locale.lorem.words
         : _faker.locale.lorem.words!.where((w) => w.length == length).toList();
-    return RandomUtils.arrayElement(words);
+    return RandomUtils.arrayElement(_faker.random, words);
   }
 
   /// returns a random sentence, with a default length of 5 words

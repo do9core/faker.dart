@@ -13,27 +13,36 @@ class Database {
   ///
   /// e.g. `Faker.instance.database.column(); // id`
   String column() {
-    return RandomUtils.arrayElement(_faker.locale.database.column);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.database.column,
+    );
   }
 
   /// generates a random database column type
   ///
   /// e.g. `Faker.instance.database.type(); // byte`
   String type() {
-    return RandomUtils.arrayElement(_faker.locale.database.type);
+    return RandomUtils.arrayElement(_faker.random, _faker.locale.database.type);
   }
 
   /// generates a random database collation
   ///
   /// e.g. `Faker.instance.database.collation(); // utf8_bin`
   String collation() {
-    return RandomUtils.arrayElement(_faker.locale.database.collation);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.database.collation,
+    );
   }
 
   /// generates a random database storage engine
   ///
   /// e.g. `Faker.instance.database.engine(); // InnoDB`
   String engine() {
-    return RandomUtils.arrayElement(_faker.locale.database.engine);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.database.engine,
+    );
   }
 }

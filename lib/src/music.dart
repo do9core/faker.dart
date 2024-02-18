@@ -13,6 +13,6 @@ class Music {
   ///
   /// e.g. `Faker.instance.music.genre() // Rock`
   String genre() {
-    return RandomUtils.arrayElement(_faker.locale.music.genre);
+    return RandomUtils.arrayElement(_faker.random, _faker.locale.music.genre);
   }
 }

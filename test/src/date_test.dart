@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:faker_dart/src/datatype.dart';
 import 'package:faker_dart/src/date.dart';
 import 'package:faker_dart/src/faker.dart';
@@ -15,7 +17,8 @@ void main() {
     faker = MockFaker();
     date = Date(faker);
 
-    when(() => faker.datatype).thenReturn(DataType());
+    when(() => faker.random).thenReturn(Random(0));
+    when(() => faker.datatype).thenReturn(DataType(faker));
   });
 
   test('generate a valid date in the past', () {

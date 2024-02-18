@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:faker_dart/faker_dart.dart';
 import 'package:faker_dart/src/datatype.dart';
 import 'package:faker_dart/src/git.dart';
@@ -16,6 +18,8 @@ void main() {
   setUp(() {
     faker = MockFaker();
     git = Git(faker);
+
+    when(() => faker.random).thenReturn(Random(0));
   });
 
   test('return a correctly formatted branch name', () {
@@ -29,7 +33,7 @@ void main() {
   });
 
   test('return a correctly formatted commit entry', () {
-    final dt = DataType();
+    final dt = DataType(faker);
     when(() => faker.datatype).thenReturn(dt);
 
     final result = git.commitEntry();

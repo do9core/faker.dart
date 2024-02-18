@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:faker_dart/src/models/faker_locale.dart';
 import 'package:faker_dart/src/utils/locale_utils.dart';
 
@@ -19,10 +21,14 @@ import 'phone_number.dart';
 
 /// generate massive amounts of fake data in dart!
 class Faker {
-  Faker._internal();
+  Faker([Random? random]) : this.random = random ?? Random();
+
+  Faker.seed(int seed) : this(Random(seed));
+
+  final Random random;
 
   /// [Faker] singleton
-  static final Faker instance = Faker._internal();
+  static final Faker instance = Faker();
 
   /// default locale will always be English
   FakerLocale _locale = LocaleUtils.generateLocale(FakerLocaleType.en);
@@ -40,7 +46,7 @@ class Faker {
   /// {@template datatype}
   /// generate random data types
   /// {@endtemplate}
-  final DataType datatype = DataType();
+  DataType get datatype => DataType(this);
 
   /// {@template image}
   /// generate random  valid image urls from different sources
@@ -50,67 +56,67 @@ class Faker {
   /// {@template name}
   /// generate random names & jobs
   /// {@endtemplate}
-  Name get name => Name(instance);
+  Name get name => Name(this);
 
   /// {@template address}
   /// generate random addresses
   /// {@endtemplate}
-  Address get address => Address(instance);
+  Address get address => Address(this);
 
   /// {@template animal}
   /// generate random animals
   /// {@endtemplate}
-  Animal get animal => Animal(instance);
+  Animal get animal => Animal(this);
 
   /// {@template commerce}
   /// generate random commerce related items
   /// {@endtemplate}
-  Commerce get commerce => Commerce(instance);
+  Commerce get commerce => Commerce(this);
 
   /// {@template company}
   /// generate random company related items
   /// {@endtemplate}
-  Company get company => Company(instance);
+  Company get company => Company(this);
 
   /// {@template database}
   /// generate random database related items
   /// {@endtemplate}
-  Database get database => Database(instance);
+  Database get database => Database(this);
 
   /// {@template music}
   /// generate random music related items
   /// {@endtemplate}
-  Music get music => Music(instance);
+  Music get music => Music(this);
 
   /// {@template hacker}
   /// generate random music related items
   /// {@endtemplate}
-  Hacker get hacker => Hacker(instance);
+  Hacker get hacker => Hacker(this);
 
   /// {@template git}
   /// generate random git related items
   /// {@endtemplate}
-  Git get git => Git(instance);
+  Git get git => Git(this);
 
   /// {@template date}
   /// generate random date related items
   /// {@endtemplate}
-  Date get date => Date(instance);
+  Date get date => Date(this);
 
   /// {@template phoneNumber}
   /// generate random phone numbers and formats
   /// {@endtemplate}
-  PhoneNumber get phoneNumber => PhoneNumber(instance);
+  PhoneNumber get phoneNumber => PhoneNumber(this);
 
   /// {@template lorem}
   /// generate random word and text related items
   /// {@endtemplate}
-  Lorem get lorem => Lorem(instance);
+  Lorem get lorem => Lorem(this);
 
   /// {@template internet}
   /// generate random internet related items
   /// {@endtemplate}
-  Internet get internet => Internet(instance);
+  Internet get internet => Internet(this);
 
   /// Generator method for combining faker methods based on string input
   ///

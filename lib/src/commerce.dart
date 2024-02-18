@@ -10,11 +10,12 @@ class Commerce {
   final Faker _faker;
 
   /// returns a random color name e.g. `red`
-  String color() => RandomUtils.arrayElement(_faker.locale.commerce.color);
+  String color() =>
+      RandomUtils.arrayElement(_faker.random, _faker.locale.commerce.color);
 
   /// returns a random commerce department e.g. `books`
-  String department() =>
-      RandomUtils.arrayElement(_faker.locale.commerce.department);
+  String department() => RandomUtils.arrayElement(
+      _faker.random, _faker.locale.commerce.department);
 
   /// returns a random product name e.g. `small steel chair`
   String productName() =>
@@ -40,18 +41,18 @@ class Commerce {
   }
 
   /// returns a random product adjective e.g. `small`;
-  String productAdjective() =>
-      RandomUtils.arrayElement(_faker.locale.commerce.productName.adjective);
+  String productAdjective() => RandomUtils.arrayElement(
+      _faker.random, _faker.locale.commerce.productName.adjective);
 
   /// returns a random product material e.g. `steel`
-  String productMaterial() =>
-      RandomUtils.arrayElement(_faker.locale.commerce.productName.material);
+  String productMaterial() => RandomUtils.arrayElement(
+      _faker.random, _faker.locale.commerce.productName.material);
 
   /// returns a random product e.g. `Chair`
-  String product() =>
-      RandomUtils.arrayElement(_faker.locale.commerce.productName.product);
+  String product() => RandomUtils.arrayElement(
+      _faker.random, _faker.locale.commerce.productName.product);
 
   /// returns a random sentence describing a product
-  String productDescription() =>
-      RandomUtils.arrayElement(_faker.locale.commerce.productDescription);
+  String productDescription() => RandomUtils.arrayElement(
+      _faker.random, _faker.locale.commerce.productDescription);
 }

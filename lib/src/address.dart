@@ -29,8 +29,11 @@ class Address {
   ///
   /// where every `#` is replaced by a number
   String zipCode({String? format}) {
-    format ??= RandomUtils.arrayElement(_faker.locale.address.postcode);
-    return HelperUtils.replaceSymbols(format!);
+    format ??= RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.address.postcode,
+    );
+    return HelperUtils.replaceSymbols(_faker.random, format!);
   }
 
   /// Generates a random localized city name. The format string can contain any
@@ -58,17 +61,26 @@ class Address {
 
   /// Returns a random localized city prefix
   String cityPrefix() {
-    return RandomUtils.arrayElement(_faker.locale.address.cityPrefix);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.address.cityPrefix,
+    );
   }
 
   /// Returns a random localized city suffix
   String citySuffix() {
-    return RandomUtils.arrayElement(_faker.locale.address.citySuffix);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.address.citySuffix,
+    );
   }
 
   /// Returns a random city name
   String cityName() {
-    return RandomUtils.arrayElement(_faker.locale.address.cityName);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.address.cityName,
+    );
   }
 
   /// Returns a random localized street name
@@ -82,12 +94,18 @@ class Address {
 
   /// returns a random street suffix
   String streetSuffix() {
-    return RandomUtils.arrayElement(_faker.locale.address.streetSuffix);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.address.streetSuffix,
+    );
   }
 
   /// returns a random street prefix
   String streetPrefix() {
-    return RandomUtils.arrayElement(_faker.locale.address.streetPrefix);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.address.streetPrefix,
+    );
   }
 
   /// generates a random street address
@@ -112,18 +130,27 @@ class Address {
   /// * Apt. ###
   /// * Suite ###
   String secondaryAddress() {
-    final format = RandomUtils.arrayElement(['Apt. ###', 'Suite ###']);
+    final format = RandomUtils.arrayElement(
+      _faker.random,
+      ['Apt. ###', 'Suite ###'],
+    );
     return HelperUtils.replaceSymbolWithNumber(format);
   }
 
   /// returns a random county
   String county() {
-    return RandomUtils.arrayElement(_faker.locale.address.county);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.address.county,
+    );
   }
 
   /// returns a random country
   String country() {
-    return RandomUtils.arrayElement(_faker.locale.address.country);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.address.country,
+    );
   }
 
   /// returns a random country code
@@ -131,18 +158,30 @@ class Address {
   /// default [AlphaCode] used is [AlphaCode.alpha2]
   String countryCode({AlphaCode alphaCode = AlphaCode.alpha2}) {
     return alphaCode == AlphaCode.alpha2
-        ? RandomUtils.arrayElement(_faker.locale.address.countryCode)
-        : RandomUtils.arrayElement(_faker.locale.address.countryCodeAlpha3);
+        ? RandomUtils.arrayElement(
+            _faker.random,
+            _faker.locale.address.countryCode,
+          )
+        : RandomUtils.arrayElement(
+            _faker.random,
+            _faker.locale.address.countryCodeAlpha3,
+          );
   }
 
   /// returns a random state
   String state() {
-    return RandomUtils.arrayElement(_faker.locale.address.state);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.address.state,
+    );
   }
 
   /// returns a random state abbreviation
   String stateAbbr() {
-    return RandomUtils.arrayElement(_faker.locale.address.stateAbbr);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.address.stateAbbr,
+    );
   }
 
   /// returns a random latitude
@@ -167,8 +206,14 @@ class Address {
   /// the abbreviated direction
   String direction({bool useAbbr = false}) {
     return useAbbr
-        ? RandomUtils.arrayElement(_faker.locale.address.directionAbbr)
-        : RandomUtils.arrayElement(_faker.locale.address.direction);
+        ? RandomUtils.arrayElement(
+            _faker.random,
+            _faker.locale.address.directionAbbr,
+          )
+        : RandomUtils.arrayElement(
+            _faker.random,
+            _faker.locale.address.direction,
+          );
   }
 
   /// returns a random cardinal direction
@@ -178,9 +223,13 @@ class Address {
   String cardinalDirection({bool useAbbr = false}) {
     return useAbbr
         ? RandomUtils.arrayElement(
-            _faker.locale.address.directionAbbr!.sublist(0, 4))
+            _faker.random,
+            _faker.locale.address.directionAbbr!.sublist(0, 4),
+          )
         : RandomUtils.arrayElement(
-            _faker.locale.address.direction!.sublist(0, 4));
+            _faker.random,
+            _faker.locale.address.direction!.sublist(0, 4),
+          );
   }
 
   /// returns a random ordinal direction
@@ -190,9 +239,13 @@ class Address {
   String ordinalDirection({bool useAbbr = false}) {
     return useAbbr
         ? RandomUtils.arrayElement(
-            _faker.locale.address.directionAbbr!.sublist(4, 8))
+            _faker.random,
+            _faker.locale.address.directionAbbr!.sublist(4, 8),
+          )
         : RandomUtils.arrayElement(
-            _faker.locale.address.direction!.sublist(4, 8));
+            _faker.random,
+            _faker.locale.address.direction!.sublist(4, 8),
+          );
   }
 
   /// returns a random GPS coordinate
@@ -249,6 +302,9 @@ class Address {
 
   /// returns a random time zone
   String timezone() {
-    return RandomUtils.arrayElement(_faker.locale.address.timeZone);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.address.timeZone,
+    );
   }
 }

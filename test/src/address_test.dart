@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:faker_dart/faker_dart.dart';
 import 'package:faker_dart/src/address.dart';
 import 'package:faker_dart/src/datatype.dart';
@@ -15,7 +17,8 @@ void main() {
     faker = MockFaker();
     address = Address(faker);
 
-    when(() => faker.datatype).thenReturn(DataType());
+    when(() => faker.random).thenReturn(Random(0));
+    when(() => faker.datatype).thenReturn(DataType(faker));
     when(() => faker.name).thenReturn(Name(faker));
   });
 

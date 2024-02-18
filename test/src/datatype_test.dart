@@ -1,13 +1,22 @@
 import 'dart:convert';
+import 'dart:math';
 
+import 'package:faker_dart/faker_dart.dart';
 import 'package:faker_dart/src/datatype.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 
+import '../test_utils.dart';
+
 void main() {
+  late Faker faker;
   late DataType datatype;
 
   setUp(() {
-    datatype = DataType();
+    faker = MockFaker();
+    when(() => faker.random).thenReturn(Random(0));
+
+    datatype = DataType(faker);
   });
 
   test('integer', () {

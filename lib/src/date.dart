@@ -58,8 +58,14 @@ class Date {
   /// e.g. `Faker.instance.date.month(); // January`
   String month({bool abbreviated = false}) {
     return abbreviated
-        ? RandomUtils.arrayElement(_faker.locale.date.month.abbr)
-        : RandomUtils.arrayElement(_faker.locale.date.month.wide);
+        ? RandomUtils.arrayElement(
+            _faker.random,
+            _faker.locale.date.month.abbr,
+          )
+        : RandomUtils.arrayElement(
+            _faker.random,
+            _faker.locale.date.month.wide,
+          );
   }
 
   /// generates a random weekday name or [abbreviated] weekday name
@@ -67,7 +73,13 @@ class Date {
   /// e.g. `Faker.instance.date.weekday(); // monday`
   String weekday({bool abbreviated = false}) {
     return abbreviated
-        ? RandomUtils.arrayElement(_faker.locale.date.weekday.abbr)
-        : RandomUtils.arrayElement(_faker.locale.date.weekday.wide);
+        ? RandomUtils.arrayElement(
+            _faker.random,
+            _faker.locale.date.weekday.abbr,
+          )
+        : RandomUtils.arrayElement(
+            _faker.random,
+            _faker.locale.date.weekday.wide,
+          );
   }
 }

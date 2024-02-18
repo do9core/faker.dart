@@ -16,7 +16,7 @@ class HelperUtils {
     return replacement;
   }
 
-  static String replaceSymbols(String string) {
+  static String replaceSymbols(Random random, String string) {
     final alphabet = [
       ...['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'],
       ...['N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
@@ -27,10 +27,10 @@ class HelperUtils {
     for (final char in string.split('')) {
       switch (char) {
         case '#':
-          replacement += RandomUtils.arrayElement(numbers);
+          replacement += RandomUtils.arrayElement(random, numbers);
           break;
         case '?':
-          replacement += RandomUtils.arrayElement(alphabet);
+          replacement += RandomUtils.arrayElement(random, alphabet);
           break;
         default:
           replacement += char;

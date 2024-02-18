@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:faker_dart/faker_dart.dart';
 import 'package:faker_dart/src/company.dart';
 import 'package:faker_dart/src/datatype.dart';
@@ -16,6 +18,7 @@ void main() {
     company = Company(faker);
     datatype = MockDataType();
 
+    when(() => faker.random).thenReturn(Random(0));
     when(() => faker.datatype).thenReturn(datatype);
   });
 

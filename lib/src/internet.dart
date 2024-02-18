@@ -13,7 +13,7 @@ class Internet {
   /// e.g. `faker.internet.url() // https://optical-sensor.com`
   String url() {
     var protocols = ['http', 'https'];
-    final randomProtocol = RandomUtils.arrayElement(protocols);
+    final randomProtocol = RandomUtils.arrayElement(_faker.random, protocols);
     final domain = '${domainName()}.${domainSuffix()}';
     return '$randomProtocol://$domain';
   }
@@ -23,8 +23,9 @@ class Internet {
   /// e.g. `faker.internet.domainName() // neural-monitor`
   String domainName() {
     final randomAdjective =
-        RandomUtils.arrayElement(_faker.locale.hacker.adjective);
-    final randomNoun = RandomUtils.arrayElement(_faker.locale.hacker.noun);
+        RandomUtils.arrayElement(_faker.random, _faker.locale.hacker.adjective);
+    final randomNoun =
+        RandomUtils.arrayElement(_faker.random, _faker.locale.hacker.noun);
 
     return '$randomAdjective-$randomNoun'
         .replaceAll(RegExp(r'\\~#&*{}/:<>?|\"\s\b|\b\s'), '')
@@ -35,7 +36,10 @@ class Internet {
   ///
   /// e.g. `faker.internet.domainSuffix() // com`
   String domainSuffix() {
-    return RandomUtils.arrayElement(_faker.locale.internet.domainSuffix);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.internet.domainSuffix,
+    );
   }
 
   /// returns a random HTTP method
@@ -43,7 +47,7 @@ class Internet {
   /// e.g. `faker.internet.httpMethod() // POST`
   String httpMethod() {
     var httpMethods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'];
-    return RandomUtils.arrayElement(httpMethods);
+    return RandomUtils.arrayElement(_faker.random, httpMethods);
   }
 
   /// returns a random IPv4 Address
@@ -70,12 +74,19 @@ class Internet {
       _faker.hacker.noun(),
     ];
 
-    final contents = RandomUtils.arrayElements(entries, 2);
+    final contents = RandomUtils.arrayElements(_faker.random, entries, 2);
     final sections = ['_', '', '-', '.'];
 
-    final start = contents.join(RandomUtils.arrayElement(sections));
-    final end = RandomUtils.arrayElement(_faker.locale.internet.freeEmail);
+    final start =
+        contents.join(RandomUtils.arrayElement(_faker.random, sections));
+    final end = RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.internet.freeEmail,
+    );
 
-    return '$start@$end'.replaceAll(' ', RandomUtils.arrayElement(sections));
+    return '$start@$end'.replaceAll(
+      ' ',
+      RandomUtils.arrayElement(_faker.random, sections),
+    );
   }
 }

@@ -22,6 +22,7 @@ class PhoneNumber {
   ///
   /// e.g. `faker.phoneNumber.phoneFormat() // '###-###-####'
   String phoneFormat() {
-    return RandomUtils.arrayElement(_faker.locale.phoneNumber.formats);
+    return RandomUtils.arrayElement(
+        _faker.random, _faker.locale.phoneNumber.formats);
   }
 }

@@ -59,16 +59,28 @@ class Name {
   String firstName({Gender gender = Gender.unspecified}) {
     if (_faker.locale.name.maleFirstName == null ||
         _faker.locale.name.femaleFirstName == null) {
-      return RandomUtils.arrayElement(_faker.locale.name.firstName);
+      return RandomUtils.arrayElement(
+        _faker.random,
+        _faker.locale.name.firstName,
+      );
     }
 
     switch (gender) {
       case Gender.male:
-        return RandomUtils.arrayElement(_faker.locale.name.maleFirstName);
+        return RandomUtils.arrayElement(
+          _faker.random,
+          _faker.locale.name.maleFirstName,
+        );
       case Gender.female:
-        return RandomUtils.arrayElement(_faker.locale.name.femaleFirstName);
+        return RandomUtils.arrayElement(
+          _faker.random,
+          _faker.locale.name.femaleFirstName,
+        );
       case Gender.unspecified:
-        return RandomUtils.arrayElement(_faker.locale.name.firstName);
+        return RandomUtils.arrayElement(
+          _faker.random,
+          _faker.locale.name.firstName,
+        );
     }
   }
 
@@ -77,16 +89,28 @@ class Name {
   String middleName({Gender gender = Gender.unspecified}) {
     if (_faker.locale.name.maleMiddleName == null ||
         _faker.locale.name.femaleMiddleName == null) {
-      return RandomUtils.arrayElement(_faker.locale.name.middleName);
+      return RandomUtils.arrayElement(
+        _faker.random,
+        _faker.locale.name.middleName,
+      );
     }
 
     switch (gender) {
       case Gender.male:
-        return RandomUtils.arrayElement(_faker.locale.name.maleMiddleName);
+        return RandomUtils.arrayElement(
+          _faker.random,
+          _faker.locale.name.maleMiddleName,
+        );
       case Gender.female:
-        return RandomUtils.arrayElement(_faker.locale.name.femaleMiddleName);
+        return RandomUtils.arrayElement(
+          _faker.random,
+          _faker.locale.name.femaleMiddleName,
+        );
       case Gender.unspecified:
-        return RandomUtils.arrayElement(_faker.locale.name.middleName);
+        return RandomUtils.arrayElement(
+          _faker.random,
+          _faker.locale.name.middleName,
+        );
     }
   }
 
@@ -95,16 +119,28 @@ class Name {
   String lastName({Gender gender = Gender.unspecified}) {
     if (_faker.locale.name.maleLastName == null ||
         _faker.locale.name.femaleLastName == null) {
-      return RandomUtils.arrayElement(_faker.locale.name.lastName);
+      return RandomUtils.arrayElement(
+        _faker.random,
+        _faker.locale.name.lastName,
+      );
     }
 
     switch (gender) {
       case Gender.male:
-        return RandomUtils.arrayElement(_faker.locale.name.maleLastName);
+        return RandomUtils.arrayElement(
+          _faker.random,
+          _faker.locale.name.maleLastName,
+        );
       case Gender.female:
-        return RandomUtils.arrayElement(_faker.locale.name.femaleLastName);
+        return RandomUtils.arrayElement(
+          _faker.random,
+          _faker.locale.name.femaleLastName,
+        );
       case Gender.unspecified:
-        return RandomUtils.arrayElement(_faker.locale.name.lastName);
+        return RandomUtils.arrayElement(
+          _faker.random,
+          _faker.locale.name.lastName,
+        );
     }
   }
 
@@ -117,8 +153,14 @@ class Name {
   /// selected
   String gender({bool binary = false}) {
     return binary
-        ? RandomUtils.arrayElement(_faker.locale.name.binaryGender)
-        : RandomUtils.arrayElement(_faker.locale.name.gender);
+        ? RandomUtils.arrayElement(
+            _faker.random,
+            _faker.locale.name.binaryGender,
+          )
+        : RandomUtils.arrayElement(
+            _faker.random,
+            _faker.locale.name.gender,
+          );
   }
 
   /// returns a random name prefix, optional [Gender] can be provided if
@@ -126,46 +168,72 @@ class Name {
   String prefix({Gender gender = Gender.unspecified}) {
     if (_faker.locale.name.malePrefix == null ||
         _faker.locale.name.femalePrefix == null) {
-      return RandomUtils.arrayElement(_faker.locale.name.prefix);
+      return RandomUtils.arrayElement(_faker.random, _faker.locale.name.prefix);
     }
 
     switch (gender) {
       case Gender.male:
-        return RandomUtils.arrayElement(_faker.locale.name.malePrefix);
+        return RandomUtils.arrayElement(
+          _faker.random,
+          _faker.locale.name.malePrefix,
+        );
       case Gender.female:
-        return RandomUtils.arrayElement(_faker.locale.name.femalePrefix);
+        return RandomUtils.arrayElement(
+          _faker.random,
+          _faker.locale.name.femalePrefix,
+        );
       case Gender.unspecified:
-        return RandomUtils.arrayElement(_faker.locale.name.prefix);
+        return RandomUtils.arrayElement(
+          _faker.random,
+          _faker.locale.name.prefix,
+        );
     }
   }
 
   /// returns a random name suffix
   String suffix() {
-    return RandomUtils.arrayElement(_faker.locale.name.suffix);
+    return RandomUtils.arrayElement(_faker.random, _faker.locale.name.suffix);
   }
 
   /// returns a random job title
   String title() {
-    final descriptor =
-        RandomUtils.arrayElement(_faker.locale.name.title.descriptor);
-    final level = RandomUtils.arrayElement(_faker.locale.name.title.level);
-    final job = RandomUtils.arrayElement(_faker.locale.name.title.job);
+    final descriptor = RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.name.title.descriptor,
+    );
+    final level = RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.name.title.level,
+    );
+    final job = RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.name.title.job,
+    );
 
     return '$descriptor $level $job';
   }
 
   /// returns a random job description
   String jobDescriptor() {
-    return RandomUtils.arrayElement(_faker.locale.name.title.descriptor);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.name.title.descriptor,
+    );
   }
 
   /// returns a random job sector e.g. creative, industry, ...
   String jobSector() {
-    return RandomUtils.arrayElement(_faker.locale.name.title.level);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.name.title.level,
+    );
   }
 
   /// returns a random job type e.g. cook, driver, ...
   String jobType() {
-    return RandomUtils.arrayElement(_faker.locale.name.title.job);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.name.title.job,
+    );
   }
 }

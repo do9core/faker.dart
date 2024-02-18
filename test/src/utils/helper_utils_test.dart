@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:faker_dart/src/utils/helper_utils.dart';
 import 'package:test/test.dart';
 
@@ -9,13 +11,15 @@ void main() {
   });
 
   test('replaceSymbols', () {
-    final result = HelperUtils.replaceSymbols('####');
+    final random = Random(0);
+    final result = HelperUtils.replaceSymbols(random, '####');
     expect(result.contains('#'), isFalse);
     expect(int.tryParse(result), isNotNull);
   });
 
   test('replace Symbols with question mark should return letters', () {
-    final result = HelperUtils.replaceSymbols('??##');
+    final random = Random(0);
+    final result = HelperUtils.replaceSymbols(random, '??##');
 
     final regex = RegExp(r'^-?[0-9]+$');
     expect(regex.hasMatch(result.substring(0, 2)), isFalse);

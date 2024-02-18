@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:faker_dart/faker_dart.dart';
 import 'package:faker_dart/src/datatype.dart';
 import 'package:faker_dart/src/internet.dart';
@@ -13,7 +15,9 @@ void main() {
   setUp(() {
     faker = MockFaker();
     internet = Internet(faker);
-    when(() => faker.datatype).thenReturn(DataType());
+
+    when(() => faker.random).thenReturn(Random(0));
+    when(() => faker.datatype).thenReturn(DataType(faker));
   });
 
   test('get a random URL', () {

@@ -27,7 +27,10 @@ class Company {
   ///
   /// e.g. `faker.company.companySuffix() // Inc`
   String companySuffix() {
-    return RandomUtils.arrayElement(_faker.locale.company.suffix);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.company.suffix,
+    );
   }
 
   /// return a random company catch phrase
@@ -51,41 +54,56 @@ class Company {
   ///
   /// e.g. `faker.company.catchPhraseAdjective() // adaptive`
   String catchPhraseAdjective() {
-    return RandomUtils.arrayElement(_faker.locale.company.adjective);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.company.adjective,
+    );
   }
 
   /// returns a random catch phrase descriptor
   ///
   /// e.g. `faker.company.catchPhraseDescriptor() // client-server`
   String catchPhraseDescriptor() {
-    return RandomUtils.arrayElement(_faker.locale.company.descriptor);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.company.descriptor,
+    );
   }
 
   /// returns a random catch phrase noun
   ///
   /// e.g. `faker.company.catchPhraseNoun() // ability`
   String catchPhraseNoun() {
-    return RandomUtils.arrayElement(_faker.locale.company.noun);
+    return RandomUtils.arrayElement(_faker.random, _faker.locale.company.noun);
   }
 
   /// returns a random b*llsh*t phrase adjective
   ///
   /// e.g. `faker.company.bsAdjective() // clicks-and-mortar`
   String bsAdjective() {
-    return RandomUtils.arrayElement(_faker.locale.company.bsAdjective);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.company.bsAdjective,
+    );
   }
 
   /// returns a random b*llsh*t phrase buzz word
   ///
   /// e.g. `faker.company.bsAdjective() // implement`
   String bsBuzz() {
-    return RandomUtils.arrayElement(_faker.locale.company.bsVerb);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.company.bsVerb,
+    );
   }
 
   /// returns a random b*llsh*t phrase noun
   ///
   /// e.g. `faker.company.bsAdjective() // synergies`
   String bsNoun() {
-    return RandomUtils.arrayElement(_faker.locale.company.bsNoun);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.company.bsNoun,
+    );
   }
 }

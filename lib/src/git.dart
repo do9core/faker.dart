@@ -56,7 +56,7 @@ class Git {
     var commit = '';
 
     for (var i = 0; i < 40; i++) {
-      commit += RandomUtils.arrayElement(_hexChars);
+      commit += RandomUtils.arrayElement(_faker.random, _hexChars);
     }
     return commit;
   }
@@ -68,7 +68,7 @@ class Git {
     var commit = '';
 
     for (var i = 0; i < 7; i++) {
-      commit += RandomUtils.arrayElement(_hexChars);
+      commit += RandomUtils.arrayElement(_faker.random, _hexChars);
     }
     return commit;
   }

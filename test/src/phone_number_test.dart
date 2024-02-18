@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:faker_dart/faker_dart.dart';
 import 'package:faker_dart/src/phone_number.dart';
 import 'package:mocktail/mocktail.dart';
@@ -12,6 +14,8 @@ void main() {
   setUp(() {
     faker = MockFaker();
     phoneNumber = PhoneNumber(faker);
+
+    when(() => faker.random).thenReturn(Random(0));
   });
 
   test('generate a correct phoneNumber', () {

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:faker_dart/src/animal.dart';
 import 'package:faker_dart/src/datatype.dart';
 import 'package:faker_dart/src/faker.dart';
@@ -14,7 +16,8 @@ void main() {
     faker = MockFaker();
     animal = Animal(faker);
 
-    when(() => faker.datatype).thenReturn(DataType());
+    when(() => faker.random).thenReturn(Random(0));
+    when(() => faker.datatype).thenReturn(DataType(faker));
   });
 
   test('return a random animal type', () {

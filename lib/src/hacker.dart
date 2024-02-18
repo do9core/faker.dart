@@ -12,40 +12,52 @@ class Hacker {
   ///
   /// e.g. `faker.hacker.abbreviation() // TCP`
   String abbreviation() {
-    return RandomUtils.arrayElement(_faker.locale.hacker.abbreviation);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.hacker.abbreviation,
+    );
   }
 
   /// retuns a random hacker related adjective
   ///
   /// e.g. `faker.hacker.adjective() // auxiliary`
   String adjective() {
-    return RandomUtils.arrayElement(_faker.locale.hacker.adjective);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.hacker.adjective,
+    );
   }
 
   /// retuns a random hacker related noun
   ///
   /// e.g. `faker.hacker.noun() // driver`
   String noun() {
-    return RandomUtils.arrayElement(_faker.locale.hacker.noun);
+    return RandomUtils.arrayElement(_faker.random, _faker.locale.hacker.noun);
   }
 
   /// retuns a random hacker related verb
   ///
   /// e.g. `faker.hacker.verb() // hack`
   String verb() {
-    return RandomUtils.arrayElement(_faker.locale.hacker.verb);
+    return RandomUtils.arrayElement(_faker.random, _faker.locale.hacker.verb);
   }
 
   /// retuns a random hacker related verb ading in `ing`
   ///
   /// e.g. `faker.hacker.ingverb() // hacking`
   String ingverb() {
-    return RandomUtils.arrayElement(_faker.locale.hacker.ingverb);
+    return RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.hacker.ingverb,
+    );
   }
 
   /// retuns a random hacker related phrase
   String phrase() {
-    final phrase = RandomUtils.arrayElement(_faker.locale.hacker.phrase);
+    final phrase = RandomUtils.arrayElement(
+      _faker.random,
+      _faker.locale.hacker.phrase,
+    );
     return _faker.fake(phrase);
   }
 }

@@ -11,7 +11,8 @@ class Animal {
 
   /// returns a random animal type, aka one of the Animal module's method
   /// names
-  String type() => RandomUtils.arrayElement(_faker.locale.animal.type);
+  String type() =>
+      RandomUtils.arrayElement(_faker.random, _faker.locale.animal.type);
 
   /// returns a completely random animal.
   String animal() {
@@ -25,42 +26,54 @@ class Animal {
   }
 
   /// returns a random dog breed
-  String dog() => RandomUtils.arrayElement(_faker.locale.animal.dog);
+  String dog() =>
+      RandomUtils.arrayElement(_faker.random, _faker.locale.animal.dog);
 
   /// returns a random cat breed
-  String cat() => RandomUtils.arrayElement(_faker.locale.animal.cat);
+  String cat() =>
+      RandomUtils.arrayElement(_faker.random, _faker.locale.animal.cat);
 
   /// returns a random snake breed
-  String snake() => RandomUtils.arrayElement(_faker.locale.animal.snake);
+  String snake() =>
+      RandomUtils.arrayElement(_faker.random, _faker.locale.animal.snake);
 
   /// returns a random bear breed
-  String bear() => RandomUtils.arrayElement(_faker.locale.animal.bear);
+  String bear() =>
+      RandomUtils.arrayElement(_faker.random, _faker.locale.animal.bear);
 
   /// returns a random lion breed
-  String lion() => RandomUtils.arrayElement(_faker.locale.animal.lion);
+  String lion() =>
+      RandomUtils.arrayElement(_faker.random, _faker.locale.animal.lion);
 
   /// returns a random catacean breed
-  String cetacean() => RandomUtils.arrayElement(_faker.locale.animal.cetacean);
+  String cetacean() =>
+      RandomUtils.arrayElement(_faker.random, _faker.locale.animal.cetacean);
 
   /// returns a random horse breed
-  String horse() => RandomUtils.arrayElement(_faker.locale.animal.horse);
+  String horse() =>
+      RandomUtils.arrayElement(_faker.random, _faker.locale.animal.horse);
 
   /// returns a random bird breed
-  String bird() => RandomUtils.arrayElement(_faker.locale.animal.bird);
+  String bird() =>
+      RandomUtils.arrayElement(_faker.random, _faker.locale.animal.bird);
 
   /// returns a random cow breed
-  String cow() => RandomUtils.arrayElement(_faker.locale.animal.cow);
+  String cow() =>
+      RandomUtils.arrayElement(_faker.random, _faker.locale.animal.cow);
 
   /// returns a random fish breed
-  String fish() => RandomUtils.arrayElement(_faker.locale.animal.fish);
+  String fish() =>
+      RandomUtils.arrayElement(_faker.random, _faker.locale.animal.fish);
 
   /// returns a random crocodilia breed
   String crocodilia() =>
-      RandomUtils.arrayElement(_faker.locale.animal.crocodilia);
+      RandomUtils.arrayElement(_faker.random, _faker.locale.animal.crocodilia);
 
   /// returns a random insect breed
-  String insect() => RandomUtils.arrayElement(_faker.locale.animal.insect);
+  String insect() =>
+      RandomUtils.arrayElement(_faker.random, _faker.locale.animal.insect);
 
   /// returns a random rabbit breed
-  String rabbit() => RandomUtils.arrayElement(_faker.locale.animal.rabbit);
+  String rabbit() =>
+      RandomUtils.arrayElement(_faker.random, _faker.locale.animal.rabbit);
 }
