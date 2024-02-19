@@ -5,12 +5,12 @@ import 'package:faker_dart/src/utils/random_utils.dart';
 
 /// helper methods for string interactions
 class HelperUtils {
-  static String replaceSymbolWithNumber(String string) {
+  static String replaceSymbolWithNumber(Random random, String string) {
     var replacement = '';
 
     for (var i = 0; i < string.length; i++) {
       replacement +=
-          string[i] == '#' ? Random().nextInt(9).toString() : string[i];
+          string[i] == '#' ? random.nextInt(9).toString() : string[i];
     }
 
     return replacement;

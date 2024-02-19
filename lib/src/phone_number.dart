@@ -15,7 +15,7 @@ class PhoneNumber {
   /// e.g. `faker.phoneNumber.phoneNumber() // 012-345-6789`
   String phoneNumber({String? format}) {
     final _format = format ?? phoneFormat();
-    return HelperUtils.replaceSymbolWithNumber(_format);
+    return HelperUtils.replaceSymbolWithNumber(_faker.random, _format);
   }
 
   /// returns a random phone number format like '###-###-####'

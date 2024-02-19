@@ -118,8 +118,8 @@ class Address {
       number += '#';
     }
 
-    final address =
-        '${HelperUtils.replaceSymbolWithNumber(number)} ${streetName()}';
+    final no = HelperUtils.replaceSymbolWithNumber(_faker.random, number);
+    final address = '$no ${streetName()}';
 
     return useFullAddress ? '$address ${secondaryAddress()}' : address;
   }
@@ -134,7 +134,7 @@ class Address {
       _faker.random,
       ['Apt. ###', 'Suite ###'],
     );
-    return HelperUtils.replaceSymbolWithNumber(format);
+    return HelperUtils.replaceSymbolWithNumber(_faker.random, format);
   }
 
   /// returns a random county

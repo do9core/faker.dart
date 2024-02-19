@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:faker_dart/src/datatype.dart';
 import 'package:faker_dart/src/faker.dart';
 import 'package:faker_dart/src/models/_models.dart';
@@ -114,3 +116,5 @@ class MockVehicle extends Mock implements Vehicle {}
 class MockWord extends Mock implements Word {}
 
 class MockDataType extends Mock implements DataType {}
+
+class MockRandom extends Mock implements Random {}
